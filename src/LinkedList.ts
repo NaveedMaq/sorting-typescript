@@ -1,11 +1,11 @@
-import { Sortable } from './Sorter';
+import { Sorter } from './Sorter';
 
 class Node {
   next: Node | null = null;
   constructor(public data: number) {}
 }
 
-export class LinkedList implements Sortable {
+export class LinkedList extends Sorter {
   head: Node | null = null;
   tail: Node | null = null;
   length: number = 0;
@@ -63,9 +63,13 @@ export class LinkedList implements Sortable {
     if (this.length === 0) return;
 
     let node = this.head;
+
+    let str = '';
     while (node) {
-      console.log(node.data);
+      str += node.data + '  ';
       node = node.next;
     }
+
+    console.log(str);
   }
 }
